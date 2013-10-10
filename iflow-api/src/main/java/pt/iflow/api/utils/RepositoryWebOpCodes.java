@@ -320,6 +320,11 @@ public final class RepositoryWebOpCodes {
    * OP code to get all available connectors
    */
   public static final int GET_CONNECTORS = 81;
+  
+  /**
+   * OP code to list all available Repositories in container
+   */
+  public static final int LIST_REPOSITORIES = 82;
 
   // Flow Docs
   /**

@@ -329,8 +329,14 @@ public class Dispatcher extends HttpServlet {
       }
 
       if (null != userInfo && userInfo.isLogged()) {
+
+        logMsg(userInfo, "FIXME - VS - opCode [" + opCode + "]");
+
         // Dynamic options
         Method m = methodMapping.get(opCode);
+
+        logMsg(userInfo, "FIXME - VS - m.getName [" + m.getName() + "]");
+
         if (null != m) {
           m.invoke(this, userInfo, response, rep, name, desc, buffer, comment);
         }
@@ -862,6 +868,13 @@ public class Dispatcher extends HttpServlet {
     byte[] data = ConnectorMarshaller.marshall(connectors);
     sendData(response, data);
     logMsg(userInfo, "listConnectors");
+  }
+  
+  @RepositoryWebOp(code = RepositoryWebOpCodes.LIST_REPOSITORIES)
+  void listRepositories(UserInfoInterface userInfo, HttpServletResponse response, Repository rep, String name, String desc,
+      byte[] buffer, String comment) throws Exception {
+    sendList(response, Utils.getRepositories(userInfo));
+    logMsg(userInfo, "listRepositories");
   }
 
   @RepositoryWebOp(code = RepositoryWebOpCodes.FLOW_DOC_GET_FILES)

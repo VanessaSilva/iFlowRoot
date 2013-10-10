@@ -1,6 +1,7 @@
 package pt.iflow.api.utils;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,6 +9,9 @@ import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang.ArrayUtils;
 import org.apache.commons.lang.StringUtils;
+
+import pt.iflow.api.utils.config.Config;
+import pt.iflow.api.utils.config.ConfigXMLReader;
 
 /**
  * <p>Title: </p>
@@ -28,6 +32,8 @@ public class Const {
   public static final int nDEVELOPMENT = 0;
   public static final int nTEST        = 1;
   public static final int nPRODUCTION  = 2;
+  
+  private static Config config;
   
   public static String sMAINTENANCE_USER = null;
 
@@ -413,7 +419,12 @@ public class Const {
     } catch (Throwable t) {
       Logger.error("", "Const", "updateConstants", t.getMessage());
       t.printStackTrace();
-      updateConstants();
+      try {
+        updateConstants();
+      } catch (FileNotFoundException e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+      }
     }
   }
 
@@ -421,7 +432,7 @@ public class Const {
     return StringUtils.isNotEmpty(Const.sMAINTENANCE_USER); 
   }
   
-  public static synchronized void updateConstants() {
+  public static synchronized void updateConstants() throws FileNotFoundException {
 
     String stmp = null;
 
@@ -725,8 +736,14 @@ public class Const {
     	sRUBRIC_UPLOAD=sNO; 
     }
     
+	config = ConfigXMLReader.readConfigFile(FilenameUtils.concat(IFLOW_HOME+ "\\config", "iflow.xml"));
+	
   }
 
+  public static Config getConfig() {
+    return config;
+  }
+  
   public static void main(String[] args) {
   }
 }

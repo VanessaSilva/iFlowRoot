@@ -82,7 +82,7 @@
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<scope>test</scope>
-		</dependency>
+		</dependency>		
 		<dependency>
 			<groupId>net.sourceforge.collections</groupId>
 			<artifactId>collections-generic</artifactId>
@@ -91,6 +91,11 @@
 			<groupId>commons-httpclient</groupId>
 			<artifactId>commons-httpclient</artifactId>
 			<type>jar</type>
+		</dependency>
+		<dependency>
+			<groupId>xerces</groupId>
+			<artifactId>xercesImpl</artifactId>
+			<version>2.8.1</version>
 		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
@@ -105,10 +110,20 @@
 			<artifactId>swsms</artifactId>
 		</dependency>
 		<dependency>
+			<groupId>org.tmatesoft.svnkit</groupId>
+			<artifactId>svnkit</artifactId>
+			<version>1.7.8</version>
+		</dependency>         
+		<dependency>
 			<groupId>bouncycastle</groupId>
 			<artifactId>bcprov-jdk15</artifactId>
 			<version>140</version>
 		</dependency>
+		<dependency>
+      		<groupId>com.thoughtworks.xstream</groupId>
+      		<artifactId>xstream</artifactId>
+      		<version>1.3.1</version>
+    	</dependency>
 		<dependency>
 			<groupId>javax.mail</groupId>
 			<artifactId>mail</artifactId>

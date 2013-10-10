@@ -37,6 +37,8 @@ import pt.iflow.api.db.DatabaseInterface;
 import pt.iflow.api.presentation.DateUtility;
 import pt.iflow.api.processdata.EvalException;
 import pt.iflow.api.processdata.ProcessData;
+import pt.iflow.api.utils.config.ConfigXMLReader;
+import pt.iflow.api.utils.config.RepositorySVN;
 import pt.iknow.utils.crypt.CryptUtils;
 
 public class Utils {
@@ -109,6 +111,24 @@ public class Utils {
     }
 
     return nameList.toArray(new String [nameList.size()]);
+  }
+  
+  /**
+   * List all repositories available to this user
+   * @param userInfo
+   * @return
+   */
+  public static String[] getRepositories(UserInfoInterface userInfo) {
+    ArrayList<RepositorySVN> repositoriesList = Const.getConfig().getRepositoriesList();
+
+    String[] repositories = new String[repositoriesList.size()];
+    int i = 0;
+    for (RepositorySVN repository : repositoriesList) {
+      repositories[i] = repository.getName();
+      Logger.debug("", "Utils", "getRepositories", repositories[i]);
+      i++;
+    }
+    return repositories;
   }
 
   private static void listContex(Context current, String currentName, List<String> names) throws NamingException {

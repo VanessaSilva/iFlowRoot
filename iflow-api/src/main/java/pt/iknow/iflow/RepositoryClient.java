@@ -139,6 +139,8 @@ public interface RepositoryClient {
   public abstract String[] listDataSources();
 
   public abstract byte[] getConnectors();
+  
+  public abstract String[] listRepositories();
 
   // Flow Docs
   public abstract byte[] flowDocsGetFiles(String searchValue, String path);

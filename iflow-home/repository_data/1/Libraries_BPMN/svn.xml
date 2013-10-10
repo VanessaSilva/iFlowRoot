@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XML Spy v4.4 U (http://www.xmlspy.com) by jmv (.) -->
+<XmlLibrary xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="library.xsd">
+  <name>SVN</name>
+  <version>1.0</version>
+  <author>iKnow</author>
+  <description>SVN</description>
+  <i18nName>library.svn.name</i18nName>
+  <i18nDescription>library.svn.description</i18nDescription>
+  <XmlBlock>
+    <class>BlockSVNUpload</class>
+    <XmlPort>
+      <name>portIn</name>
+      <description>portIn</description>
+      <in_out>in</in_out>
+      <position>
+        <x>-2</x>
+        <y>40</y>
+      </position>
+    </XmlPort>
+    <XmlPort>
+      <name>portSuccess</name>
+      <description>portSuccess</description>
+      <in_out>out</in_out>
+      <position>
+        <x>105</x>
+        <y>25</y>
+      </position>
+    </XmlPort>
+    <XmlPort>
+      <name>portError</name>
+      <description>portError</description>
+      <in_out>out</in_out>
+      <position>
+        <x>105</x>
+        <y>55</y>
+      </position>
+    </XmlPort>
+    <XmlAttribute>
+      <name>repository</name>
+      <description>Repository</description>
+      <value />
+    </XmlAttribute>
+    <XmlAttribute>
+      <name>fileVariable</name>
+      <description>File Variable</description>
+      <value />
+    </XmlAttribute>
+    <image>bpmn_svnupload.png</image>
+    <className>pt.iknow.floweditor.blocks.AlteraAtributosSVNUpload</className>
+    <description>Upload</description>
+    <i18n>library.svn.block.upload</i18n>
+  </XmlBlock>
+</XmlLibrary>

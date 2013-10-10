@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Config xmlns:ns2="pt.iflow.api.utils.config.Config">
+	<RepositoriesSVN> 
+		<RepositorySVN>
+			<name>Domiciliações</name>
+			<url>https://sddcentvcvs01.central.rinterna.local/svn/CVSCANAIS/domiciliacoes/branches/idocs</url>
+			<username>i051520</username>
+			<password>OXlis518vaness</password>
+		</RepositorySVN>
+		<RepositorySVN>
+			<name>Nome 2</name>
+			<url>http://svn.catso.tr</url>
+			<username>xptoxpto</username>
+			<password>1234321</password>
+		</RepositorySVN>
+	</RepositoriesSVN> 	
+</Config>

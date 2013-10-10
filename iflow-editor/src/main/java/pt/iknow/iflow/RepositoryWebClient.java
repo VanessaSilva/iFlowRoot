@@ -806,6 +806,13 @@ public class RepositoryWebClient implements RepositoryClient {
   public byte[] getConnectors() {
     return getBytes(RepositoryWebOpCodes.GET_CONNECTORS, "");
   }
+  
+  /* (non-Javadoc)
+   * @see pt.iknow.iflow.RepositoryClient#listRepositories()
+   */
+  public String[] listRepositories() {
+    return getList(RepositoryWebOpCodes.LIST_REPOSITORIES);
+  }
 
   // Flow Docs
   /* (non-Javadoc)
