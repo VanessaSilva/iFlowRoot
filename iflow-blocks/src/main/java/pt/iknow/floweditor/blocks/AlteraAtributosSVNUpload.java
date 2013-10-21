@@ -87,7 +87,7 @@ public class AlteraAtributosSVNUpload extends AlteraAtributos {
 
     panel1.setLayout(borderLayout1);
 
-    // Botão OK
+    // Botão OK 
     okButton.setText(OK);
     okButton.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(ActionEvent e) {
