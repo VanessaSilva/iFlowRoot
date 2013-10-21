@@ -77,7 +77,6 @@ public class AlteraAtributosSVNUpload extends AlteraAtributos {
   }
 
   void jbInit() {
-
     // Size
     addComponentListener(new java.awt.event.ComponentAdapter() {
       public void componentResized(java.awt.event.ComponentEvent evt) {
@@ -116,8 +115,8 @@ public class AlteraAtributosSVNUpload extends AlteraAtributos {
     // Repository
     // label
     JLabel dsLabel = new JLabel(sRepositoryLabel + ": ");
-    dsLabel.setLabelFor(jcbRepositories);
     dsLabel.setHorizontalAlignment(JLabel.LEFT);
+    dsLabel.setLabelFor(this.jcbRepositories);
 
     // separator
     JPanel sizer = new JPanel();
@@ -136,9 +135,8 @@ public class AlteraAtributosSVNUpload extends AlteraAtributos {
     // File Variable
     // label
     JLabel dsLabel2 = new JLabel(sFileVariableLabel + ": ");
-    dsLabel2.setLabelFor(jcbFileVariables);
     dsLabel2.setHorizontalAlignment(JLabel.LEFT);
-    jPanel.add(dsLabel2);
+    dsLabel2.setLabelFor(jcbFileVariables);
 
     // separator
     JPanel sizer2 = new JPanel();
@@ -164,9 +162,8 @@ public class AlteraAtributosSVNUpload extends AlteraAtributos {
     // Nome
     // label
     JLabel dsLabel3 = new JLabel(sUserNameLabel + ": ");
-    dsLabel3.setLabelFor(jtfUserNameFromBlock);
     dsLabel3.setHorizontalAlignment(JLabel.LEFT);
-    jPanel.add(dsLabel3);
+    dsLabel3.setLabelFor(jtfUserNameFromBlock);
 
     // separator
     JPanel sizer3 = new JPanel();
@@ -185,9 +182,8 @@ public class AlteraAtributosSVNUpload extends AlteraAtributos {
     // Password
     // label
     JLabel dsLabel4 = new JLabel(sPasswordLabel + ": ");
-    dsLabel4.setLabelFor(jtfPasswordFromBlock);
     dsLabel4.setHorizontalAlignment(JLabel.LEFT);
-    jPanel.add(dsLabel4);
+    dsLabel4.setLabelFor(jtfPasswordFromBlock);
 
     // separator
     JPanel sizer4 = new JPanel();
@@ -205,10 +201,9 @@ public class AlteraAtributosSVNUpload extends AlteraAtributos {
     
     // Encriptado
     // label
-    JLabel dsLabel7 = new JLabel(sDontEncryptPasswordLabel);
-    dsLabel7.setLabelFor(jcbEncriptado);
+    JLabel dsLabel7 = new JLabel(sDontEncryptPasswordLabel +  " ");
     dsLabel7.setHorizontalAlignment(JLabel.LEFT);
-    jPanel.add(dsLabel7);
+    dsLabel7.setLabelFor(jcbEncriptado);
 
     // separator
     JPanel sizer7 = new JPanel();
@@ -227,9 +222,8 @@ public class AlteraAtributosSVNUpload extends AlteraAtributos {
     // Dirpath
     // label
     JLabel dsLabel5 = new JLabel(sDirpathLabel + ": ");
-    dsLabel5.setLabelFor(jtfDirpath);
     dsLabel5.setHorizontalAlignment(JLabel.LEFT);
-    jPanel.add(dsLabel5);
+    dsLabel5.setLabelFor(jtfDirpath);
 
     // separator
     JPanel sizer5 = new JPanel();
@@ -248,9 +242,8 @@ public class AlteraAtributosSVNUpload extends AlteraAtributos {
     // Commentary
     // label
     JLabel dsLabel6 = new JLabel(sCommentaryLabel + ": ");
-    dsLabel6.setLabelFor(jtaCommentary);
     dsLabel6.setHorizontalAlignment(JLabel.LEFT);
-    jPanel.add(dsLabel6);
+    dsLabel6.setLabelFor(jtaCommentary);
 
     // separator
     JPanel sizer6 = new JPanel();
@@ -325,7 +318,7 @@ public class AlteraAtributosSVNUpload extends AlteraAtributos {
           continue;
       }
     }
-    super.setDataIn(title, myAttrs);
+    super.setDataIn(title, myAttrs, 600, 400);
   }
 
   public String[][] getNewAttributes() {
@@ -420,7 +413,7 @@ public class AlteraAtributosSVNUpload extends AlteraAtributos {
         jtfDirpath.setText(at.getValor());
       } else if (StringUtils.equalsIgnoreCase(sCommentary, at.getNome())) {
         jtaCommentary.setText(at.getValor());
-      } else if (StringUtils.equalsIgnoreCase("Não Encriptar Password", at.getNome())) {
+      } else if (StringUtils.equalsIgnoreCase(sDontEncryptPassword, at.getNome())) {
         jcbEncriptado.setSelected(Boolean.valueOf(at.getValor()).booleanValue());
       } else {
         retObj.add(at);
@@ -453,10 +446,10 @@ public class AlteraAtributosSVNUpload extends AlteraAtributos {
 
   private void initControls() { 
     jcbEncriptado = new JCheckBox();
-    jtfUserNameFromBlock = new JTextField(15);
-    jtfPasswordFromBlock = new JTextField(15);
-    jtfDirpath = new JTextField(15);
-    jtaCommentary = new JTextArea(5, 10);
+    jtfUserNameFromBlock = new JTextField(25);
+    jtfPasswordFromBlock = new JTextField(25);
+    jtfDirpath = new JTextField(25);
+    jtaCommentary = new JTextArea(5, 25);
     jtaCommentary.setPreferredSize(new Dimension(80,20));
     if (jcbRepositories == null) {
       jcbRepositories = new JComboBox(prepareRepositoryComboBox(null));

@@ -11,8 +11,10 @@ package pt.iknow.floweditor.blocks;
  ****************************************************/
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.util.List;
 
@@ -95,6 +97,10 @@ public class AlteraAtributos extends AbstractAlteraAtributos implements AlteraAt
   }
 
   public void setDataIn(String title, List<Atributo> atributos) {
+    setDataIn(title, atributos, 500, 680);
+  }
+
+  public void setDataIn(String title, List<Atributo> atributos, int width, int height) {
     setTitle(title);
 
     Atributo atr = null;
@@ -164,10 +170,9 @@ public class AlteraAtributos extends AbstractAlteraAtributos implements AlteraAt
 
     /* criar botões e arranjar dialogo */
     jbInit();
-
-    this.setSize(500, 680);
-    setVisible(true);
-
+    this.setSize(width, height);
+    this.setLocationRelativeTo(null);
+    this.setVisible(true);
   }
   
   String[][] parseData() {
